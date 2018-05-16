@@ -1,0 +1,105 @@
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cxfjaxws.learning.org/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http"
+	name="HelloWorldService" targetNamespace="http://cxfjaxws.learning.org/">
+	<wsdl:types>
+		<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://cxfjaxws.learning.org/" elementFormDefault="unqualified"
+			targetNamespace="http://cxfjaxws.learning.org/" version="1.0">
+
+			<xs:element name="GreetingMessage" type="tns:greetingMsg" />
+
+			<xs:element name="detailGreeting" type="tns:detailGreeting" />
+
+			<xs:element name="detailGreetingResponse" type="tns:detailGreetingResponse" />
+
+			<xs:element name="greeting" type="tns:greeting" />
+
+			<xs:element name="greetingResponse" type="tns:greetingResponse" />
+
+			<xs:complexType name="detailGreeting">
+				<xs:sequence />
+			</xs:complexType>
+
+			<xs:complexType name="detailGreetingResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="tns:greetingMsg" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="greetingMsg">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="message" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+
+			<xs:complexType name="greeting">
+				<xs:sequence />
+			</xs:complexType>
+
+			<xs:complexType name="greetingResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="return" type="xs:string" />
+				</xs:sequence>
+			</xs:complexType>
+
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="greeting">
+		<wsdl:part element="tns:greeting" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="detailGreeting">
+		<wsdl:part element="tns:detailGreeting" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="detailGreetingResponse">
+		<wsdl:part element="tns:detailGreetingResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="greetingResponse">
+		<wsdl:part element="tns:greetingResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="HelloWorldService">
+		<wsdl:operation name="detailGreeting">
+			<wsdl:input message="tns:detailGreeting" name="detailGreeting">
+			</wsdl:input>
+			<wsdl:output message="tns:detailGreetingResponse" name="detailGreetingResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="greeting">
+			<wsdl:input message="tns:greeting" name="greeting">
+			</wsdl:input>
+			<wsdl:output message="tns:greetingResponse" name="greetingResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="HelloWorldServiceSoapBinding" type="tns:HelloWorldService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="detailGreeting">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="detailGreeting">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="detailGreetingResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="greeting">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="greeting">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="greetingResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="HelloWorldService">
+		<wsdl:port binding="tns:HelloWorldServiceSoapBinding" name="HelloWorldServiceImplPort">
+			<soap:address location="http://localhost:8080/cxf-jaxws/services/hello" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
