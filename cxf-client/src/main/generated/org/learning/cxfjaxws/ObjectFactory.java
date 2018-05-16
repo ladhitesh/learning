@@ -38,6 +38,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DetailGreeting }
+     * 
+     */
+    public DetailGreeting createDetailGreeting() {
+        return new DetailGreeting();
+    }
+
+    /**
      * Create an instance of {@link GreetingResponse }
      * 
      */
@@ -46,11 +54,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link DetailGreeting }
+     * Create an instance of {@link GreetingMsg }
      * 
      */
-    public DetailGreeting createDetailGreeting() {
-        return new DetailGreeting();
+    public GreetingMsg createGreetingMsg() {
+        return new GreetingMsg();
     }
 
     /**
@@ -67,14 +75,6 @@ public class ObjectFactory {
      */
     public DetailGreetingResponse createDetailGreetingResponse() {
         return new DetailGreetingResponse();
-    }
-
-    /**
-     * Create an instance of {@link GreetingMsg }
-     * 
-     */
-    public GreetingMsg createGreetingMsg() {
-        return new GreetingMsg();
     }
 
     /**
