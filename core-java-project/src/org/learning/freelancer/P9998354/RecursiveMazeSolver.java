@@ -81,11 +81,16 @@ public class RecursiveMazeSolver {
 	}
 	
 	public static void solveMaze(Node[][] maze){
-		//boolean solved = recursiveSolve(maze.length-1,maze.length-1);
+		boolean solved = recursiveSolve(maze.length-1,maze.length-1);
 		if(!solved){
 			solution.clear();
 		}
 
+	}
+	
+	//dummy method
+	public static boolean recursiveSolve(int a, int b){
+		return false;
 	}
 	
 	public static class Node {
