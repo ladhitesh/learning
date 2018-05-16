@@ -9,6 +9,8 @@ public class BubbleSort {
 		int[] unsorted = {2,1,4,3};
 		//comparison sort algorithm
 		//n square time, in place, not stable
+		//compare adjacent elements and swap if left is greater than right
+		//collecting one max elments at right at each iteration.
 		int[] sorted = new BubbleSort().sort(unsorted);
 		System.out.println(Arrays.toString(sorted));
 	}
