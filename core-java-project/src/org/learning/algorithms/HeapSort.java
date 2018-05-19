@@ -9,7 +9,10 @@ public class HeapSort {
 		int[] unsorted = { 6, 11, 11, 2, 2, 1, 4, 3, 9 };
 		
 		int[] sorted = new HeapSort().sort(unsorted);
-		System.out.println(Arrays.toString(sorted));
+		//System.out.println(Arrays.toString(sorted));
+		
+		int[] unsorted1 = { 6, 11, 15, 2, 2, 1, 4, 20, 9 };
+		new HeapSort().extractMax(unsorted1, 4);
 	}
 
 	private int[] sort(int[] unsorted) {
@@ -29,7 +32,7 @@ public class HeapSort {
 		}
 		
 		//remove max from root and reheapify
-		for (int i = n-1 ; i >=0; i --) {
+		for (int i = n - 1 ; i >=0; i --) {
 			swap(unsorted,0,i);
 			heapify(unsorted,i,0);
 		}
@@ -37,7 +40,26 @@ public class HeapSort {
 		int[] sorted = unsorted;
 		return sorted;
 	}
-
+	
+	public void extractMax(int[] unsorted,int noOfElementsToExtract){
+		
+		int n = unsorted.length; //no. of elements
+		for (int i = n/2 -1 ; i >= 0; i--) {
+			//for each node level, heapify
+			heapify(unsorted, n, i);
+		}
+		
+		//remove max from root and reheapify
+		for (int i = n-1,j = 0 ; i >=0 && j < noOfElementsToExtract; i--,j++) {
+			swap(unsorted,0,i);
+			heapify(unsorted,i,0);
+		}
+		System.out.println(Arrays.toString(unsorted));
+		for (int i = unsorted.length-1,j=0; i > 0 && j < noOfElementsToExtract; i--,j++) {
+			System.out.print(unsorted[i] + " ");
+		}
+	}
+	
 	private void heapify(int[] unsorted, int maxElementsInHeap, int i) {
 		
 		int subtreeRoot = i;
@@ -59,7 +81,7 @@ public class HeapSort {
 		}
 	}
 	
-	public void swap(int[] input, int first, int second){
+	private void swap(int[] input, int first, int second){
 		int temp = input[second];
 		input[second] = input[first];
 		input[first] = temp;
