@@ -40,22 +40,22 @@ public class HeapSort {
 
 	private void heapify(int[] unsorted, int maxElementsInHeap, int i) {
 		
-		int max = i;
+		int subtreeRoot = i;
 		int left = (i*2)+1;
 		int right = (i*2)+2;
 		
-		if(left < maxElementsInHeap && unsorted[left]>unsorted[max]){
-			max = left;
+		if(left < maxElementsInHeap && unsorted[left]>unsorted[subtreeRoot]){
+			subtreeRoot = left;
 		}
 		
-		if(right < maxElementsInHeap && unsorted[right]>unsorted[max]){
-			max = right;
+		if(right < maxElementsInHeap && unsorted[right]>unsorted[subtreeRoot]){
+			subtreeRoot = right;
 		}
 		
 		//swap if there is change in index holding max value
-		if(max != i){
-			swap(unsorted,max,i);
-			heapify(unsorted,maxElementsInHeap,max);
+		if(subtreeRoot != i){
+			swap(unsorted,subtreeRoot,i);
+			heapify(unsorted,maxElementsInHeap,subtreeRoot);
 		}
 	}
 	
