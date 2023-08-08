@@ -8,7 +8,7 @@
 	<name>spring-mvc-test Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<spring.version>3.2.17.RELEASE</spring.version>
+		<spring.version>5.2.20.RELEASE</spring.version>
 		<jackson.version>2.12.7.1</jackson.version>
 	</properties>
 	<dependencies>
