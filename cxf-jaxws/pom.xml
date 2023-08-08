@@ -9,7 +9,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<cxf.version>2.7.18</cxf.version>
-		<spring.version>3.2.17.RELEASE</spring.version>
+		<spring.version>6.0.0</spring.version>
 	</properties>
 	<dependencies>
 		<dependency>
